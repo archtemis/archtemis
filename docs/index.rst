@@ -13,6 +13,7 @@ Welcome to Archtemis's documentation!
    network
 
 This documentation shares my experience of configuring Arch linux for my personal use.
+For any questions or contribution, submit an Issue here: `github.com/archtemis/archtemis/ <https://github.com/archtemis/archtemis>`_.
 
 Indices and tables
 ==================
