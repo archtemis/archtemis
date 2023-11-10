@@ -10,6 +10,7 @@ Welcome to Archtemis's documentation!
    :maxdepth: 2
    :caption: Contents:
    
+   install
    network
 
 This documentation shares my experience of configuring Arch linux for my personal use.

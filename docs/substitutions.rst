@@ -1,4 +1,4 @@
-.. |arch| replace:: Arch linux
+.. |arch| replace:: Arch Linux
 .. _arch: https://archlinux.org
 
 .. |nftables| replace:: nftables
