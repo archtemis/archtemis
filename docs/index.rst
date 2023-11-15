@@ -11,6 +11,7 @@ Welcome to Archtemis's documentation!
    :caption: Contents:
    
    install
+   applications
    network
 
 This documentation shares my experience of configuring Arch linux for my personal use.
