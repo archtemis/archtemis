@@ -18,7 +18,7 @@ UPnP/DNLA
 
 To stream media I use `Rygel <https://wiki.archlinux.org/title/Rygel>`_ which is compatible with UPnP/DNLA. Any user can start ``rygel`` to share content from the home directory, it will scan the folders `Pictures`, `Videos` and `Music` by default.
 
-If you run ``rygel`` behind a firewall, ensure that your firewall allows connections from your clients on the listening port. By default, whenever you start ``rygel``, the default configuration assignis a port dynamically which may change from one session to another if the ``/etc/rygel.conf`` sets ``port=0``.  Therefore, I recommend that the user starts ``rygel`` using always the same port, let's assume for example ``50000``. To choose a port which is available, you can run the following command:
+If you run ``rygel`` behind a firewall, ensure that your firewall allows connections from your clients on the listening port. By default, whenever you start ``rygel``, the default configuration assigns a port dynamically which may change from one session to another if the ``/etc/rygel.conf`` sets ``port=0``.  Therefore, I recommend that the user starts ``rygel`` using always the same port, let's assume for example ``50000``. To choose a port which is available, you can run the following command:
 
 
 ::
