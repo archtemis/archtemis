@@ -7,7 +7,7 @@
 Network
 *******
 
-Parental controls
+parental controls
 =================
 
 In this use case, I configure my workstation such that my kids can browse internet but only on a controlled list of websites. The configuration relies on:
@@ -139,3 +139,38 @@ Finally, define the permission access (note that the ``all`` static ACL is requi
 
 The ``/etc/squid/squid.conf`` file should look like :download:`squid.conf <../conf/etc/squid/squid.conf>`
 
+
+Wi-Fi
+=====
+
+Eduroam
+-------
+
+`Eduroam <https://eduroam.org>`_  is an international Wi-Fi internet access roaming service for users in research. 
+Since version v2.10, `wpa_supplicant <https://wiki.archlinux.org/title/Wpa_supplicant>`_ uses `OpenSSL <https://wiki.archlinux.org/title/OpenSSL>`_ 3 (see `CHANGELOG <https://w1.fi/cgit/hostap/plain/wpa_supplicant/ChangeLog>`_) which seems not being compatible with Eduroam connections. I managed to connect to Eduroam by downgrading wpa_supplicant to version v2.9:
+
+::
+
+    # download wpa_supplicant v2.9 from Arch Linux archives
+    wget https://archive.archlinux.org/packages/w/wpa_supplicant/wpa_supplicant-2%3A2.9-8-x86_64.pkg.tar.zst
+
+    # install the package
+    pacman -U 'wpa_supplicant-2 3A2.9-8-x86_64.pkg.tar.zst'
+
+    # install OpenSSL 1 required by version v2.9
+    pacman -Sy openssl-1.1
+
+    # restart the wpa_supplicant systemd service
+    systemctl restart wpa_supplicant
+
+In order to avoid wpa_supplicant being ugraded by ``pacman -Syu``, edit the file ``/etc/pacman.conf`` and add:
+
+::
+
+    IgnorePkg = wpa_supplicant
+
+
+After this modification, I was able to connect using the Network Manager widget in KDE plasma.
+
+
+Note that similar issue and solution were described from Ubuntu 22.04 (see `here <https://forum.ubuntu-fr.org/viewtopic.php?id=2072098>`_).
