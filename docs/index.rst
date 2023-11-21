@@ -16,6 +16,7 @@ Welcome to Archtemis's experience using |arch|_!
    applications
    system
    network
+   troubleshooting
 
 This documentation shares my experience of configuring |arch|_ for my personal use.
 For any questions or contribution, submit an Issue here: `github.com/archtemis/archtemis/ <https://github.com/archtemis/archtemis>`_.
