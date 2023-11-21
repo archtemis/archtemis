@@ -6,13 +6,13 @@
 System
 ******
 
-system logs
+System logs
 ===========
 
 dmesg
 -----
 
-To print kenel log use `dmesg <https://man.archlinux.org/man/dmesg.1>`_, for example:
+To print kernel log use `dmesg <https://man.archlinux.org/man/dmesg.1>`_, for example:
 
 ::
 
@@ -32,3 +32,40 @@ For `Systemd <https://wiki.archlinux.org/title/Systemd>`_ services, use `Systemd
     # Follow new messages:
     journalctl -f
 
+
+Hardware information
+====================
+
+lshw, dmidecode
+---------------
+
+Use ``lshw`` or ``dmidecode``. For example, to get hardware information about RAM memory:
+
+::
+
+    sudo dmidecode -t memory
+    sudo lshw -C memory
+
+lsblk
+-----
+
+List information about block devices. For example, to get the partition list with their UUID:
+
+::
+
+    lsblk -f
+
+fdisk
+-----
+
+Display the partition table:
+
+::
+
+    fdisk -l
+
+To modify the partition table:
+
+::
+
+    fdisk /dev/nvme0n1
