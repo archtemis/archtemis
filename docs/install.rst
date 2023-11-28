@@ -56,36 +56,47 @@ Partition the disks:
 
     fdisk /dev/nvme0n1
     # n to add partition.
-    #  -  EFI
+    #  -  EFI (1GB)
     #  -  Linux for the OS (128G)
     #  -  swap (16G)
     #  -  Linux for the user's home (remaining space)
     # w to write partition table
     mkfs.ext4 -L ARCH /dev/nvme0n1p2
     mkswap -L SWAP /dev/nvme0n1p3
-    mkfs -n EFI -F 32 /dev/nvme0n1p1
+    mkfs.fat -n EFI -F 32 /dev/nvme0n1p1
     mkfs.ext4 -L HOME /dev/nvme0n1p4
 
 
 Configure the system
 ====================
 
+I started by installing additional packages to edit file during the configuration process:
+
+::
+
+    pacman -Sy vim
+    pacman -Sy sudo # to edit /etc/sudoers
+
 Time:
 
 ::
 
-    ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+    ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 Localization:
 
 ::
 
-    echp "KEYMAP=us-acentos" > /etc/vconsole.conf
+    echo "KEYMAP=us-acentos" > /etc/vconsole.conf
 
 
 Boot loader:
 
-I used `GRUB <https://wiki.archlinux.org/title/GRUB>`_.
+Install `GRUB <https://wiki.archlinux.org/title/GRUB>`_:
+
+::
+
+    pacman -Sy grub efibootmgr
 
 ::
 
