@@ -12,10 +12,10 @@ Systemd
 vconsole
 --------
 
-From ``dmesg``,  the followinf information was reported for the ``systemd-vconsole-setup`` unit:
+From ``dmesg``,  the following information was reported for the ``systemd-vconsole-setup`` unit:
 
 
-::
+.. code-block:: dmesg
 
     Aug 26 18:48:33 archlinux systemd-vconsole-setup[248]: /usr/bin/loadkeys failed with exit status 1.
     Aug 26 18:48:33 archlinux systemd-vconsole-setup[248]: KD_FONT_OP_GET failed while trying to get the font metadata: Invalid argument
@@ -32,7 +32,7 @@ The ``/etc/mkinitcpio.conf`` had the following ``HOOKS``:
     HOOKS=(base systemd plymouth autodetect modconf block filesystems keyboard fsck)
 
 
-Adding ``sd-vconsole`` in the list fixed the problrem:
+Adding ``sd-vconsole`` in the list fixed the problem:
 
 ::
 
