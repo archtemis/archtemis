@@ -89,6 +89,21 @@ Localization:
 
     echo "KEYMAP=us-acentos" > /etc/vconsole.conf
 
+Network configuration:
+
+.. code-block:: bash
+
+    pacman -S networkmanager dhclient net-tools # net-tools provides ifconfig
+    systemctl enable NetworkManager.service
+
+Note that, If this is not done during the installation, you can install do this after reboot, however, you would need to do:
+
+.. code-block:: bash
+
+   ip link set eno1 up
+   systemctl stop systemd-networkd.service systemd-resolved.service
+
+You have to replace the ``eno1`` interface named by the one shown by the command ``ip link show``. 
 
 Boot loader:
 
@@ -102,4 +117,5 @@ Install `GRUB <https://wiki.archlinux.org/title/GRUB>`_:
 
     grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/
     grub-mkconfig -o /boot/grub/grub.cfg
+
 
